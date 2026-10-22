@@ -1,0 +1,251 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f7f3ee;
+    /* Effet de lignes de carnet subtiles style Dear Data */
+    background-image: linear-gradient(#e5ded6 1px, transparent 1px);
+    background-size: 100% 28px;
+    color: #2f3542;
+    margin: 0;
+    padding: 30px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+header h1 {
+    color: #b85d34;
+    font-family: Georgia, serif;
+    margin-bottom: 5px;
+}
+
+/* Style manuscrit pour le sous-titre de l'en-tête */
+.subtitle-note {
+    font-family: 'Caveat', cursive;
+    font-size: 24px;
+    color: #57606f;
+    margin-top: 0;
+}
+
+/* Tampon carnet de voyage */
+.travel-stamp {
+    display: inline-block;
+    border: 2px dashed #b85d34;
+    color: #b85d34;
+    padding: 5px 15px;
+    font-family: 'Caveat', cursive;
+    font-size: 20px;
+    transform: rotate(-1.5deg);
+    background: rgba(184, 93, 52, 0.03);
+    border-radius: 4px;
+    margin-top: 10px;
+}
+
+main {
+    max-width: 950px;
+    margin: 0 auto;
+    background: #ffffff;
+    padding: 40px;
+    border-radius: 4px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.06);
+    border: 1px solid #e1dcd6;
+}
+
+h2 {
+    border-bottom: 2px dashed #dcd6cd;
+    padding-bottom: 8px;
+    color: #2f3542;
+    font-family: Georgia, serif;
+}
+
+/* ZONE DE CARTE POSTALE / CONSTELLATION DEAR DATA (2 RANGÉES DE 4) */
+.dear-data-canvas {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 20px 14px;
+    padding: 30px 10px;
+    margin: 10px auto;
+    max-width: 620px; /* Largeur idéale pour exactement 4 éléments par ligne */
+    position: relative;
+}
+
+/* Éléments de la constellation & position relative pour les infobulles */
+.exp-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 12px;
+    box-sizing: border-box;
+    transition: transform 0.2s ease;
+    cursor: pointer;
+    position: relative;
+    z-index: 5;
+}
+
+/* Effets d'inclinaison organique asymétrique (effet dessin fait main) */
+.tilt-left { transform: rotate(-4deg); }
+.tilt-right { transform: rotate(3deg); }
+
+/* Petits décalages harmonieux pour un rendu vivant et spontané de carnet */
+.pos-c1 { transform: translateY(-5px) rotate(-3deg); }
+.pos-c2 { transform: translateY(8px) rotate(2deg); }
+.pos-c3 { transform: translateY(-8px) rotate(4deg); }
+.pos-c4 { transform: translateY(10px) rotate(-2deg); }
+.pos-c5 { transform: translateY(-6px) rotate(-4deg); }
+.pos-c6 { transform: translateY(5px) rotate(3deg); }
+.pos-c7 { transform: translateY(-5px) rotate(-2deg); }
+.pos-c8 { transform: translateY(6px) rotate(3deg); }
+
+.exp-item:hover {
+    transform: scale(1.15) rotate(0deg) !important;
+    z-index: 15;
+}
+
+.label {
+    font-size: 11px;
+    font-weight: 600;
+    color: #fff;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.9);
+    padding: 0 5px;
+    line-height: 1.2;
+}
+
+/* INFOBULLES MANUSCRITES AU SURVOL (TOOLTIPS) */
+.tooltip-note {
+    visibility: hidden;
+    position: absolute;
+    bottom: 115%;
+    left: 50%;
+    transform: translateX(-50%) rotate(-1deg);
+    background-color: #fffdf0;
+    color: #2f3542;
+    text-shadow: none;
+    font-family: 'Caveat', cursive;
+    font-size: 18px;
+    text-align: left;
+    padding: 10px 14px;
+    border-radius: 4px;
+    border: 1px solid #d4cdbd;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    width: 170px;
+    z-index: 25;
+    opacity: 0;
+    transition: opacity 0.2s ease, visibility 0.2s ease;
+    pointer-events: none;
+}
+
+.exp-item:hover .tooltip-note {
+    visibility: visible;
+    opacity: 1;
+}
+
+/* NOTES MANUSCRITES DANS LA PAGE */
+.handwritten-note {
+    font-family: 'Caveat', cursive;
+    font-size: 22px;
+    color: #c0392b; 
+    transform: rotate(-1deg); 
+    margin: 10px 0;
+}
+
+.top-note {
+    margin-bottom: 15px;
+    text-align: left;
+    padding-left: 10px;
+}
+
+.bottom-note {
+    text-align: right;
+    padding-right: 10px;
+    transform: rotate(1deg);
+}
+
+/* BANNIÈRE DE STATISTIQUES DATAFIÉES */
+.stats-banner {
+    display: flex;
+    justify-content: space-around;
+    background-color: #fcf9f5;
+    border: 1px dashed #dcd6cd;
+    padding: 15px;
+    margin: 20px 0;
+    border-radius: 4px;
+}
+
+.stat-box {
+    font-family: 'Caveat', cursive;
+    font-size: 22px;
+    color: #3d405b;
+}
+
+.stat-box strong {
+    color: #b85d34;
+    font-size: 26px;
+}
+
+/* VARIABLES VISUELLES DE BERTIN */
+
+/* 1. Formes */
+.shape-circle { border-radius: 50%; }
+.shape-square { border-radius: 8px; }
+
+/* Correction géométrique pour centrer le texte dans le triangle */
+.shape-triangle { 
+    clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+    border-radius: 0;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    padding-bottom: 15px;
+}
+
+/* 2. Tailles (Durée) harmonisées */
+.size-short { width: 75px; height: 75px; }
+.size-med { width: 95px; height: 95px; }
+.size-long { width: 115px; height: 115px; }
+
+/* Proportion spécifique pour le triangle long */
+.shape-triangle.size-long {
+    width: 125px; 
+    height: 115px;
+}
+
+/* 3. Remplissage (Intensité / Teintes) */
+.fill-low { 
+    background-color: #f7dcd1; 
+}
+.fill-low .label {
+    color: #2f3542; 
+    text-shadow: none; 
+}
+.fill-med { 
+    background-color: #e07a5f; 
+}
+.fill-high { 
+    background-color: #3d405b; 
+}
+
+/* 4. Bordures (Collaboration) */
+.border-solid { border: 3px solid #1e272e; }
+.border-dashed { border: 3px dashed #1e272e; }
+
+/* Légende */
+.legend-list {
+    line-height: 2;
+    padding-left: 20px;
+}
+
+.legend-badge {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    vertical-align: middle;
+    margin-right: 6px;
+    background-color: #3d405b;
+    border: 2px solid #1e272e;
+}
+.legend-badge.shape-circle { border-radius: 50%; }
+.legend-badge.shape-square { border-radius: 3px; }
